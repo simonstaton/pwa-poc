@@ -1,0 +1,17 @@
+<%- include views/partials/header -%>
+<main class="login">
+    <section class="login__hero">
+        <div class="login__hero__title">
+            <h1>Login information</h1>
+            <p>Create an account and enjoy access to free online lessons and face-to-face workshops.</p>
+        </div>
+    </section>
+    <form class="login__form" action="" onsubmit="event.preventDefault();">
+        <h2>Sign in</h2>
+        <a href="dashboard.html" class="button button--primary button--icon jsLogin" onClick="ripple(event);"><img class="gitkit-idp-icon" src="https://www.gstatic.com/authtoolkit/image/google.png"> Sign in with Google</a>
+        <a href="dashboard.html" class="button button--secondary button--icon ripple jsLogin" onClick="ripple(event);"><i class="material-icons">email</i> Sign in with email</a>
+        <div class="login__loader jsLoginLoader"></div>
+        <p>By signing in I agree to the Google <a href="javascript:void(0);">Terms of Service and Privacy Policy</a></p>
+    </form>
+</main>
+<%- include views/partials/footer -%>

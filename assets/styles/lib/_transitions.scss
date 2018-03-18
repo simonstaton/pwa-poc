@@ -1,0 +1,47 @@
+%transition-all {
+    @include transition(all 0.35s ease-in-out);
+}
+
+@mixin transition-all {
+    @include transition(all 0.35s ease-in-out);
+}
+
+%transition-styling {
+    @include transition(color 0.35s ease-in-out, background 0.35s ease-in-out);
+}
+
+@mixin transition-styling {
+    @include transition(color 0.35s ease-in-out, background 0.35s ease-in-out);
+}
+
+%transition-transform {
+    @include transition(transform 0.35s ease-in-out, visibility 0.35s ease-in-out);
+}
+
+@mixin transition-transform {
+    @include transition(transform 0.35s ease-in-out, visibility 0.35s ease-in-out);
+}
+
+%transition-background {
+    @include transition(background 0.15s ease-in-out);
+}
+
+@mixin transition-background {
+    @include transition(background 0.15s ease-in-out);
+}
+
+%transition-color {
+    @include transition(color 0.15s ease-in-out);
+}
+
+@mixin transition-color {
+    @include transition(color 0.15s ease-in-out);
+}
+
+%transition-fade {
+    @include transition(visibility 0.3s linear, opacity 0.3s linear);
+}
+
+@mixin transition-fade {
+    @include transition(visibility 0.3s linear, opacity 0.3s linear);
+}

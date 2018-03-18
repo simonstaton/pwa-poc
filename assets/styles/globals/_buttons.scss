@@ -1,0 +1,53 @@
+.button {
+    @extend %transition-background;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    vertical-align: middle;
+    width: 100%;
+    padding: 5px 10px;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: "Roboto Slab",Georgia,sans-serif;
+    text-align: center;
+    text-decoration: none;
+    min-height: 48px;
+    line-height: 38px;
+    overflow: hidden;
+    &--primary {
+        background: #4285f4;
+        &:hover {
+            background: darken(#4285f4, 10%);
+            color: #fff;
+        }
+    }
+    &--secondary {
+        background: #7f7f7f;
+        &:hover {
+            background: darken(#7f7f7f, 10%);
+            color: #fff;
+        }
+    }
+    &--icon {
+        padding-left: 58px;
+        position: relative;
+        i, img {
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 48px;
+            height: 48px;
+            line-height: 48px;
+        }
+        i {
+            font-size: 32px;
+        }
+    }
+    &.animate--ripple:after {
+        background: rgba(0,0,0,.1);
+    }
+}

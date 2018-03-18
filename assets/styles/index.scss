@@ -1,0 +1,15 @@
+@import '~normalize.css';
+@import 'lib/index';
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+@import 'globals/index';
+

@@ -1,0 +1,29 @@
+@include keyframes(ripple) {
+    0% {
+        opacity: 1;
+        transform: scale(0);
+    }
+    80% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }
+}
+
+.animate--ripple:after {
+    transform: scale(0);
+    content: '';
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 400px;
+    height: 400px;
+    margin-left: -200px;
+    margin-top: -200px;
+    background: rgba(0,0,0,.25);
+    border-radius: 50%;
+    animation: ripple .75s ease-out;
+}

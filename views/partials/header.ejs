@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include head -%>
+</head>
+<body>
+    <header class="header">
+        <div class="header__logo">
+            <button type="button" class="header__mobile-nav-button jsOpenNav"><i class="material-icons">menu</i></button>
+            <a href="/"><img src="<%= require('../assets/images/logo.png') %>" /></a>
+        </div>
+        <nav class="nav">
+            <a href="/" class="nav__logo"><img src="<%= require('../assets/images/logo.png') %>" /></a>
+            <a href="javascript:void(0);" class="nav__close jsCloseNav"><i class="material-icons">close</i></a>
+            <a href="/login.html" class="nav__link nav__link--show-mobile"><i class="show-mobile material-icons">account_circle</i> Sign in</a>
+            <hr />
+            <a href="/" class="nav__link <% if (htmlWebpackPlugin.options.active === 'home') { %> nav__link--active<% } %>" onClick="ripple(event);"><i class="show-mobile material-icons">home</i> Home</a>
+            <a href="javascript:void(0);" class="nav__link" onClick="ripple(event);"><i class="show-mobile material-icons">library_books</i> Topic Library</a>
+            <a href="javascript:void(0);" class="nav__link" onClick="ripple(event);"><i class="show-mobile material-icons">school</i> Certification</a>
+            <hr />
+            <a href="javascript:void(0);" class="nav__link nav__link--show-mobile" onClick="ripple(event);"><i class="show-mobile material-icons">work</i> Tools</a>
+            <a href="javascript:void(0);" class="nav__link" onClick="ripple(event);"><i class="show-mobile material-icons">date_range</i> Local Coaching</a>
+            <a href="javascript:void(0);" class="nav__link" onClick="ripple(event);"><i class="show-mobile material-icons">people</i> Partners</a>
+            <a href="javascript:void(0);" class="nav__link nav__link--show-mobile" onClick="ripple(event);"><i class="show-mobile material-icons">help</i> Help &amp; FAQs</a>
+            <a href="javascript:void(0);" class="nav__link nav__link--show-mobile" onClick="ripple(event);"><i class="show-mobile material-icons">chat_bubble</i> Feedback</a>
+            <a href="javascript:void(0);" class="nav__link nav__link--hide-mobile" onClick="ripple(event);">More <i class="material-icons">keyboard_arrow_down</i></a>
+            <a href="javascript:void(0);" class="nav__link nav__link--right nav__link--bold">Get Started</a>
+            <a href="/login.html" class="nav__link nav__link--right">Sign In</a>
+        </nav>
+        <div class="nav__shadow"></div>
+    </header>

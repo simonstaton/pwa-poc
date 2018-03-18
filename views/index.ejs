@@ -1,0 +1,37 @@
+<%- include views/partials/header -%>
+<main class="homepage">
+    <section class="homepage__hero">
+        <div class="homepage__hero__content">
+            <h1>Get new skills for a digital world</h1>
+            <p>Grow your career or business at your own pace, with flexible and personalised training courses designed to build your confidence and help you thrive.</p>
+            <ul>
+                <li>Discover tools to make your business succeed</li>
+                <li>Improve your interview skills</li>
+                <li>Prepare for the career you want</li>
+            </ul>
+            <a href="button button--primary">Get Started</a>
+        </div>
+        <div class="homepage__hero__background">
+            <img src="<%= require('../assets/images/homepage/hero-background.jpg') %>" alt="Get new swkills for a digital world" />
+        </div>
+    </section>
+    <section class="flex flex--3">
+        <h2>Simple steps for your growth</h2>
+        <div class="flex__item">
+            <img src="<%= require('../assets/images/homepage/choose-a-skill.png') %>" />
+            <h4>Choose a skill</h4>
+            <p>Whether you're a student or a business, at the start or in the middle of your journey, here you can choose the lessons that are right for you.</p>
+        </div>
+        <div class="flex__item">
+            <img src="<%= require('../assets/images/homepage/learn-at-your-pace.png') %>" />
+            <h4>Learn at your own pace</h4>
+            <p>Create your own unique learning plan on your computer, smartphone or tablet.</p>
+        </div>
+        <div class="flex__item">
+            <img src="<%= require('../assets/images/homepage/get-certified.png') %>" />
+            <h4>Get certified</h4>
+            <p>Track your progress and receive an accredited certificate that can help boost your LinkedIn profile and CV.</p>
+        </div>
+    </section>
+</main>
+<%- include views/partials/footer -%>

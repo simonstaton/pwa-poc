@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Roboto Slab');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: "Roboto", Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 24px;
+}
+
+h1, h2, h3, h4, h4 {
+    color: #616161;
+    font-family: "Roboto Slab", Georgia, sans-serif;
+}
+
+a {
+    @extend %transition-color;
+    color: rgb(63, 81, 191);
+    text-decoration: none;
+    &:hover {
+        color: lighten(rgb(63, 81, 191), 10%);
+    }
+}
+
+p {
+    color: #616161;
+}

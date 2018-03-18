@@ -1,0 +1,239 @@
+@mixin fancy-nav {
+    .nav {
+        @extend %transition-transform;
+        transform: translateX(-320px);
+        display: block;
+        position: fixed;
+        max-width: 320px;
+        width: 100%;
+        background: rgb(250,250,250);
+        top: 0;
+        bottom: 0;
+        left: 0;
+        height: 100%;
+        visibility: hidden;
+        z-index: 2;
+        padding: 0;
+        overflow-x: auto;
+        &--open {
+            transform: translateX(0px);
+            visibility: visible;
+        }
+        &__logo {
+            display: block;
+            height: 66px;
+            width: 100%;
+            padding: 0 57px 0 24px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+            margin-bottom: 72px;
+            img {
+                width: 100%;
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+        &__close {
+            display: block;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: rgba(0, 0, 0, 0.54);
+        }
+        &__link {
+            display: block;
+            color: rgba(0, 0, 0, 0.87);
+            height: 48px;
+            margin: 0;
+            line-height: 28px;
+            padding: 10px 15px;
+            &:hover {
+                i {
+                    color: rgb(64, 84, 178) !important;
+                }
+                color: rgb(64, 84, 178);
+                background: rgba(0, 0, 0, 0.06);
+            }
+            &--active {
+                border: 0;
+            }
+            &--show-mobile {
+                display: block;
+            }
+            &--hide-mobile {
+                display: none;
+            }
+            &--bold,
+            &--right {
+                box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
+                color: rgb(255,255,255);
+                background-color: rgb(0,191,165);
+                text-transform: uppercase;
+                height: 52px;
+                line-height: 52px;
+                width: calc(100% - 30px);
+                text-align: center;
+                padding: 0;
+                margin: 10px 15px;
+                border-radius: 0;
+                &:hover {
+                    background:  rgb(0,232,200);
+                    color: #FFF;
+                }
+            }
+            &--right {
+                margin-top: 40px;
+                float: none;
+            }
+            &--bold {
+                margin-top: 10px;
+                position: absolute;
+                top: 66px;
+            }
+            i.show-mobile {
+                @include transition-all;
+                display: inline-block;
+                font-size: 24px;
+                color: rgba(0, 0, 0, 0.54);
+                margin-right: 32px;
+            }
+        }
+        &__shadow {
+            @include transition-fade;
+            position: fixed;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            display: block;
+            visibility: hidden;
+            opacity: 0;
+        }
+        hr {
+            display: block;
+            margin: 10px 15px;
+            background: none;
+            border: 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+        }
+    }
+    .nav--open + .nav__shadow {
+        display: block;
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.nav {
+    height: 64px;
+    padding: 0 20px 0 8px;
+    &__link {
+        @extend %transition-styling;
+        position: relative;
+        padding: 20px 16px;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 24px;
+        margin: 0 4px;
+        display: inline-block;
+        color: rgba(0, 0, 0, 0.87);
+        text-decoration: none;
+        overflow: hidden;
+        font-family: "Roboto", Arial, sans-serif;
+        max-height: 100%;
+        &:hover {
+            color: rgb(64,84,178);
+        }
+        &.animate--ripple:after {
+            background: rgba(64,84,178,.2);
+        }
+        &.animate--ripple-active {
+            background: rgba(0,0,0,.1);
+        }
+        &--active {
+            border-bottom: 2px solid rgb(64,84,178);
+            padding-bottom: 18px;
+        }
+        &--right {
+            float: right;
+            color: rgb(64,84,178);
+            margin-right: 20px;
+            margin-top: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            height: 36px;
+            line-height: 38px;
+            padding: 0 10px;
+            &:hover {
+                background-color: rgba(158,158,158,0.2);
+            }
+        }
+        &--bold {
+            background: rgb(0,191,165);
+            color: #FFF;
+            border-radius: 2px;
+            box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
+            &:hover {
+                background:  rgb(0,232,200);
+                color: #FFF;
+            }
+        }
+        &--show-mobile {
+            display: none;
+        }
+        i {
+            line-height: 0;
+            transform: translateY(7px);
+            &.show-mobile {
+                display: none;
+            }
+        }
+    }
+    &__logo,
+    &__shadow,
+    &__close,
+    hr {
+        display: none;
+    }
+}
+
+@include media-large {
+    @include fancy-nav;
+}
+
+body.authenticated {
+    @include fancy-nav;
+    .nav {
+        &__close {
+            color: #fff;
+        }
+        &__user {
+            background: #4054B2;
+            height: 76px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: no-wrap;
+            align-items: center;
+            padding: 14px 14px 19px 24px;
+            margin-bottom: 10px;
+            &__avatar {
+                display: block;
+                width: 40px;
+                height: 40px;
+                margin-right: 22px;
+                background: url(../images/avatar.png) no-repeat center center;
+                background-size: 100%;
+            }
+            &__username {
+                color: #fff;
+                font-family: "Roboto", Arial, sans-serif;
+                font-size: 14px;
+                font-weight: 700;
+                line-height: 16px;
+                margin: 0;
+            }
+        }
+    }
+}
