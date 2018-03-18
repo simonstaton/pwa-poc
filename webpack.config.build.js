@@ -1,8 +1,13 @@
 const path = require('path');
+const webpack = require('webpack');
 const merge = require('webpack-merge');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpackConfig = require('./webpack.config');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
+
+// Env
+const APP_URL = 'https://7f77c130.ngrok.io';
+const PUSH_SERVICE_URL = 'https://digital-garage-push-server.herokuapp.com';
 
 module.exports = merge(webpackConfig, {
   devtool: 'source-map',
@@ -11,14 +16,18 @@ module.exports = merge(webpackConfig, {
     filename: '[name].js'
   },
   plugins: [
+    new webpack.DefinePlugin({
+      PUSH_SERVICE_URL: JSON.stringify(PUSH_SERVICE_URL),
+      APP_URL: JSON.stringify(APP_URL)
+    }),
     new WebpackPwaManifest({
       filename: 'web-manifest.json',
       inject: true,
       ios: true,
       lang: 'en-GB',
-      name: 'Digital Garage',
-      short_name: 'DG',
-      start_url: 'https://61b14353.ngrok.io',
+      name: 'Google Learn GO',
+      short_name: 'GLG',
+      start_url: APP_URL + '/dashboard.html',
       display: 'standalone',
       orientation: 'any',
       background_color: '#FFFFFF',

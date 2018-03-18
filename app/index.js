@@ -17,16 +17,7 @@ const vapidPublicKey = ((key) => {
 })(VAPID_PUB_KEY);
 
 // Service Worker
-registerServiceWorker({ scope: '/' }).then((sw) => {
-  console.log('CLIENT: service worker registered');
-}).catch((err) => {
-  if (err instanceof ServiceWorkerNoSupportError) {
-    console.log('CLIENT: service worker not supported.');
-  } else {
-    console.log('CLIENT: error loading service worker.');
-  }
-});
-
+registerServiceWorker({ scope: '/' });
 navigator.serviceWorker.ready.then(worker => {
   worker.pushManager.getSubscription().then(subscription => {
     if (subscription === null) {
@@ -49,26 +40,18 @@ navigator.serviceWorker.ready.then(worker => {
   $playVideo.addEventListener('click', playVideo);
 
   function playVideo() {
-    console.log(window.pushNotificationSubscription); // submit this to backend
     const xmlhttp = new XMLHttpRequest();
-
-    xmlhttp.open('POST', 'http://127.0.0.1:8886/send-notification');
-    xmlhttp.setRequestHeader("Content-Type", "application/json");
+    xmlhttp.open('POST', `${PUSH_SERVICE_URL}/send-notification`);
+    xmlhttp.setRequestHeader('Content-Type', 'application/json');
     xmlhttp.send(JSON.stringify({
-      subscription: window.pushNotificationSubscription
+      subscription: window.pushNotificationSubscription,
+      data: {
+        type: 'video-stopped',
+        timer: 1 * 10 * 1000 // Send notification in 1 minute
+      }
     }));
-    // post to 127.0.0.1:8886 to send the notification
   }
 })();
-
-
-
-
-
-
-
-
-
 
 // Login buttons
 (() => {
@@ -81,7 +64,6 @@ navigator.serviceWorker.ready.then(worker => {
   let loginTimer;
   function login(e) {
     e.preventDefault();
-    // needs to submit some data to http://127.0.0.1:8886/send-notification
     if (loginTimer) clearTimeout(loginTimer);
     loginTimer = setTimeout(() => {
       $login.forEach(el => el.style.visibility = 'hidden');

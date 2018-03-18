@@ -3,12 +3,17 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackExcludeAssetsPlugin = require('html-webpack-exclude-assets-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const WebpackPwaManifest = require('webpack-pwa-manifest');
 
 const IS_DEV = (process.env.NODE_ENV === 'dev');
 
 const dirNode = 'node_modules';
 const dirApp = path.join(__dirname, 'app');
 const dirAssets = path.join(__dirname, 'assets');
+
+// Env
+const APP_URL = 'http://127.0.0.1:8080';
+const PUSH_SERVICE_URL = 'http://127.0.0.1:8081';
 
 module.exports = {
   entry: {
@@ -30,7 +35,34 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       IS_DEV: IS_DEV,
-      VAPID_PUB_KEY: JSON.stringify(require('./vapid-keys').public)
+      VAPID_PUB_KEY: JSON.stringify(require('./vapid-keys').public),
+      PUSH_SERVICE_URL: JSON.stringify(PUSH_SERVICE_URL),
+      APP_URL: JSON.stringify(APP_URL)
+    }),
+    new WebpackPwaManifest({
+      filename: 'web-manifest.json',
+      lang: 'en-GB',
+      name: 'Google Learn GO',
+      short_name: 'GLG',
+      start_url: APP_URL + '/dashboard.html',
+      display: 'standalone',
+      orientation: 'any',
+      background_color: '#FFFFFF',
+      theme_color: '#00BFA5',
+      prefer_related_applications: false,
+      related_applications: [
+        {
+          platform: 'play',
+          id: 'com.google.android.apps.growthengine'
+        }
+      ],
+      icons: [
+        {
+          src: path.resolve('assets/images/icon.png'),
+          type: 'image/png',
+          sizes: [96, 128, 192, 256, 384, 512]
+        }
+      ]
     }),
     new ExtractTextPlugin({
       filename: '[name].css',
