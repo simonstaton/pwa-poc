@@ -1,6 +1,6 @@
 @mixin fancy-nav {
     .nav {
-        @extend %transition-transform;
+        @include transition-transform;
         transform: translateX(-320px);
         display: block;
         position: fixed;
@@ -39,6 +39,9 @@
             top: 20px;
             right: 20px;
             color: rgba(0, 0, 0, 0.54);
+        }
+        &__user {
+            display: flex;
         }
         &__link {
             display: block;
@@ -194,17 +197,13 @@
     &__logo,
     &__shadow,
     &__close,
+    &__user,
     hr {
         display: none;
     }
 }
 
-@include media-large {
-    @include fancy-nav;
-}
-
 body.authenticated {
-    @include fancy-nav;
     .nav {
         &__close {
             color: #fff;
@@ -212,7 +211,6 @@ body.authenticated {
         &__user {
             background: #4054B2;
             height: 76px;
-            display: flex;
             flex-direction: row;
             flex-wrap: no-wrap;
             align-items: center;
@@ -236,4 +234,12 @@ body.authenticated {
             }
         }
     }
+}
+
+@include media-large {
+    @include fancy-nav;
+}
+
+body.compact-nav {
+    @include fancy-nav;
 }

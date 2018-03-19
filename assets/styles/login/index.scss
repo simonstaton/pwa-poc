@@ -1,8 +1,11 @@
 @import '../lib/index';
 
+.footer {
+    background: #fff;
+}
+
 .login {
     background: #f5f5f5;
-    height: calc(100vh - 129px);
     &__hero {
         background: rgb(64, 84, 178);
         padding: 56px 0 83px;
@@ -61,7 +64,7 @@
     &__loader {
         @extend %transition-fade;
         transition-duration: 0.35s;
-        background: url(/assets/images/loading.gif) no-repeat center center;
+        background: url(../../images/loading.gif) no-repeat center center;
         position: absolute;
         width: 40px;
         height: 40px;
@@ -80,5 +83,6 @@
 @include media-medium {
     .login__form {
         transform: none;
+        box-shadow: none;
     }
 }

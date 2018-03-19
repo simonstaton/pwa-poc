@@ -33,6 +33,18 @@ navigator.serviceWorker.ready.then(worker => {
   });
 });
 
+// Defer add to homescreen prompt until user is on dashboard
+// const shouldShowPrompt = window.location.pathname == '/dashboard.html';
+// window.addEventListener('beforeinstallprompt', (e) => {
+//   if (!shouldShowPrompt) e.preventDefault();
+//   e.userChoice.then((res) => {
+//     if (res.outcome == 'dismissed') {
+//       alert('You can always add to homescreen via your browser settings');
+//     }
+//   });
+//   return shouldShowPrompt;
+// });
+
 // Video notification
 (() => {
   const $playVideo = document.querySelector('.jsPlayVideo');
@@ -47,7 +59,7 @@ navigator.serviceWorker.ready.then(worker => {
       subscription: window.pushNotificationSubscription,
       data: {
         type: 'video-stopped',
-        timer: 1 * 10 * 1000 // Send notification in 1 minute
+        timer: 1 * 3 * 1000 // Send notification in 3 seconds
       }
     }));
   }

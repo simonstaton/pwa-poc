@@ -1,5 +1,5 @@
 {
-  "name": "Digital Gargage Push Server",
+  "name": "Learn Digital Push Server",
   "description": "web push protocol host",
   "image": "heroku/nodejs"
 }

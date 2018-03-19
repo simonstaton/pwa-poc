@@ -1,0 +1,249 @@
+@import '../lib/index';
+
+.footer {
+    background: #fff;
+}
+
+.lesson {
+    display: flex;
+    flex-direction: column;
+    &__header {
+        @extend %clearfix;
+        flex: 0 100%;
+        max-height: 95px;
+        background: #43A047;
+        padding: 20px 40px;
+        position: relative;
+        h1 {
+            color: #fff;
+            font-size: 22px;
+            font-family: 'Roboto', Arial, sans-serif;
+            font-weight: 400;
+            line-height: 28px;
+            margin: 0 0 6px;
+            i {
+                display: none;
+            }
+        }
+        p {
+            margin: 0;
+            font-family: 'Roboto', Arial, sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 20px;
+            color: #fff;
+            span {
+                font-family: inherit;
+                font-size: inherit;
+                font-weight: inherit;
+                line-height: inherit;
+                color: rgba(255,255,255,0.7);
+            }
+        }
+        ul {
+            position: absolute;
+            right: 40px;
+            top: calc(50% - 20px);
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            display: inline-block;
+            color: #fff;
+            font-family: 'Roboto', Arial, sans-serif;
+            font-size: 14px;
+            line-height: 37px;
+            font-weight: 500;
+            vertical-align: middle;
+            margin-right: 20px;
+            text-transform: uppercase;
+            &:last-of-type {
+                margin-right: 0;
+            }
+            i {
+                vertical-align: middle;
+                font-size: 20px;
+            }
+        }
+        &__expand {
+            display: none;
+        }
+    }
+    &__container {
+        flex: 1;
+        display: flex;
+    }
+    &__nav {
+        flex: 1 0 50%;
+        margin-bottom: auto;
+        max-width: 480px;
+        background: #ffffff;
+        &__schedule {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            &__topic {
+                border-bottom: 1px solid rgb(226, 226, 226);
+                background: #ffffff;
+                &--active {
+                    background: #eeeeee;
+                }
+                h6 {
+                    color: rgba(0, 0, 0, 0.54);
+                    font-family: 'Roboto', Arial, sans-serif;
+                    font-size: 14px;
+                    font-weight: 500;
+                    line-height: 22px;
+                    margin: 0;
+                    padding: 16px 0 16px 40px;
+                }
+            }
+            &__lesson-count {
+                padding: 16px 60px 16px 40px;
+                position: relative;
+                color: rgba(0, 0, 0, 0.54);
+                font-family: 'Roboto', Arial, sans-serif;
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 22px;
+                span {
+                    position: absolute;
+                    right: 40px;
+                    top: 50%;
+                    margin-top: -10px;
+                    font-family: 'Roboto', Arial, sans-serif;
+                    font-size: 14px;
+                    font-weight: 500;
+                    line-height: 22px;
+                    letter-spacing: 3px;
+                }
+            }
+            &__skip {
+                margin: 10px;
+                a {
+                    color: rgb(64, 84, 178);
+                    padding: 20px;
+                    background: rgb(250, 250, 250);
+                    font-family: 'Roboto', Arial, sans-serif;
+                    font-size: 15px;
+                    font-weight: 700;
+                    line-height: 30px;
+                    text-transform: uppercase;
+                    i {
+                        left: 20px;
+                        top: 10px;
+                        font-size: 20px;
+                        color: rgb(64, 84, 178);
+                    }
+                }
+            }
+        }
+    }
+    &__chapters {
+        &:nth-last-of-type(2n-1) {
+            border-bottom: 0;
+        }
+        h6 {
+            position: relative;
+            line-height: 36px;
+            &:hover {
+                color: #000;
+                i {
+                    color: rgba(0, 0, 0, 0.54);
+                }
+                button {
+                    background: #d9d9d9;
+
+                }
+            }
+            i {
+                vertical-align: middle;
+                font-size: 20px;
+                margin-right: 5px;
+                &:nth-child(2) {
+                    display: none;
+                }
+            }
+            button {
+                width: 38px;
+                height: 38px;
+                border-radius: 50%;
+                color: rgba(0, 0, 0, 0.54);
+                background: none;
+                display: inline;
+                border: 0;
+                outline: 0;
+                vertical-align: middle;
+                position: absolute;
+                right: 30px;
+                text-align: center;
+                i {
+                    vertical-align: middle;
+                    margin: 0;
+                }
+            }
+        }
+        &__list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: none;
+            &__item {
+                i {
+
+                }
+                span {
+
+                }
+            }
+        }
+    }
+    &__content {
+        flex: 1 0 50%;
+        padding: 20px;
+        background: #f5f5f5;
+    }
+}
+
+@include media-large {
+    .lesson {
+        &__header {
+            padding: 13px 16px;
+            h1 {
+                font-size: 18px;
+                font-weight: 400;
+                line-height: 28px;
+                margin-bottom: 6px;
+                i {
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+            }
+            p {
+                font-size: 14px;
+                line-height: 20px;
+            }
+            ul {
+                position: static;
+            }
+            ul li {
+                display: none;
+            }
+            &__expand {
+                display: block !important;
+                position: absolute;
+                right: 0;
+                top: 50%;
+                margin: -20px;
+                padding: 0;
+                i {
+                    font-size: 24px !important;
+                }
+            }
+        }
+        &__nav {
+            display: none;
+        }
+    }
+}

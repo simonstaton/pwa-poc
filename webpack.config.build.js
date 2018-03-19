@@ -6,7 +6,7 @@ const webpackConfig = require('./webpack.config');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 
 // Env
-const APP_URL = 'https://7f77c130.ngrok.io';
+const APP_URL = 'http://localhost:8887';
 const PUSH_SERVICE_URL = 'https://digital-garage-push-server.herokuapp.com';
 
 module.exports = merge(webpackConfig, {
@@ -26,12 +26,12 @@ module.exports = merge(webpackConfig, {
       ios: true,
       lang: 'en-GB',
       name: 'Google Learn GO',
-      short_name: 'GLG',
-      start_url: APP_URL + '/dashboard.html',
+      short_name: 'Learn',
+      start_url: APP_URL + '/login.html',
       display: 'standalone',
       orientation: 'any',
       background_color: '#FFFFFF',
-      theme_color: '#00BFA5',
+      theme_color: '#6ccd79',
       prefer_related_applications: false,
       related_applications: [
         {

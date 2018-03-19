@@ -55,17 +55,10 @@
     }
 }
 
-body {
-    padding-top: 129px; // header offset
-    &.authenticated {
-        padding-top: 65px;
-        @include fancy-header;
-    }
-    @include media-large {
-        padding-top: 65px;
-    }
+@include media-large {
+    @include fancy-header;
 }
 
-@include media-large {
+body.compact-nav {
     @include fancy-header;
 }

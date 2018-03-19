@@ -1,0 +1,59 @@
+@import '../lib/index';
+@import 'hero';
+@import 'steps';
+@import 'learn-online';
+
+p, li {
+    font-family: "Google Sans", Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28px;
+    margin: 0 0 21px;
+    color: rgb(66, 66, 66);
+}
+
+h1, h2, h3, h4 {
+    margin: 0 0 24px;
+    font-family: "Google Sans", Arial, sans-serif;
+    font-size: 44px;
+    font-weight: 300;
+    line-height: 52px;
+}
+
+h1 {
+    font-family: "Google Sans Display", Arial, sans-serif;
+    color: rgb(77, 80, 85);
+}
+
+h2 {
+    margin: 45px 0 35px;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 300;
+    line-height: 32px;
+    color: rgb(77, 80, 85);
+    @include media-medium {
+        font-size: 24px;
+        line-height: 32px;
+        font-weight: 300;
+        margin-bottom: 30px;
+    }
+}
+
+h4 {
+    font-family: "Google Sans", Arial, sans-serif;
+    color: rgb(65, 65, 65);
+    font-size: 22px;
+    line-height: 22px;
+    margin: 10px 0 15px;
+}
+
+.button--primary {
+    font-size: 15px;
+    line-height: 15px;
+    padding: 19px 16px;
+    background: rgb(41, 121, 255);
+    &:hover {
+        background: darken(rgb(41, 121, 255), 10%);
+    }
+}

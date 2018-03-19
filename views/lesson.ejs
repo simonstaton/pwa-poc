@@ -1,6 +1,53 @@
 <%- include views/partials/header-authenticated -%>
 <main class="lesson">
-    <h1>Lesson</h1>
-    <button class="button button--primary jsPlayVideo">Play Video Test</button>
+    <div class="lesson__header">
+        <h1><i class="material-icons">keyboard_arrow_down</i>1. Intro to the Digital Garage</h1>
+        <p><span>Topic:</span> The online opportunity</p>
+        <ul>
+            <li class="lesson__header__expand"><i class="material-icons">more_vert</i></li>
+            <li><i class="material-icons">star_border</i> Bookmark</li>
+            <li><i class="material-icons">share</i> Share</li>
+        </ul>
+    </div>
+    <div class="lesson__container">
+        <nav class="lesson__nav">
+            <ul class="lesson__nav__schedule">
+                <li class="lesson__nav__schedule__topic">
+                    <h6>Topic Overview</h6>
+                </li>
+                <li class="lesson__nav__schedule__lesson-count">
+                    Lessons <span>0/2</span>
+                </li>
+                <li class="lesson__nav__schedule__topic lesson__chapters">
+                    <h6><i class="material-icons">star_border</i> 1. Intro to the Digital Garage <button type="button"><i class="material-icons">keyboard_arrow_down</i><i class="material-icons">keyboard_arrow_up</i></button></h6>
+                    <ul class="lesson__chapters__list">
+                        <li class="lesson__chapters__list__item">
+                            <i class="material-icons">play_circle_outline</i> Watch the lesson <span>2 min</span>
+                        </li>
+                        <li class="lesson__chapters__list__item">
+                            <i class="material-icons">playlist_add_check</i> Check your knowledge <span>2 min</span>
+                        </li>
+                    </ul>
+                </li>
+                <li class="lesson__nav__schedule__topic lesson__chapters">
+                    <h6><i class="material-icons">star_border</i> 2. Your digital opportunity <button type="button"><i class="material-icons">keyboard_arrow_down</i><i class="material-icons">keyboard_arrow_up</i></button></h6>
+                    <ul class="lesson__chapters__list">
+                        <li class="lesson__chapters__list__item">
+                            <i class="material-icons">play_circle_outline</i> Watch the lesson <span>4 min</span>
+                        </li>
+                        <li class="lesson__chapters__list__item">
+                            <i class="material-icons">playlist_add_check</i> Check your knowledge <span>2 min</span>
+                        </li>
+                    </ul>
+                </li>
+                <li class="lesson__nav__schedule__skip">
+                    <a href="javascript: void(0);" class="button button--light button--icon" onclick="ripple(event);"><i class="material-icons">skip_next</i> Skip to quiz</a>
+                </li>
+            </ul>
+        </nav>
+        <section class="lesson__content">
+            <button class="button button--primary jsPlayVideo">Create Notification</button>
+        </section>
+    </div>
 </main>
 <%- include views/partials/footer -%>

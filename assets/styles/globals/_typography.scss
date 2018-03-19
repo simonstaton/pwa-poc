@@ -1,6 +1,20 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
-@import url('https://fonts.googleapis.com/css?family=Roboto Slab');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900');
+@import url('https://fonts.googleapis.com/css?family=Roboto Slab:100,300,400,500,700,900');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+@font-face {
+    font-family: 'Google Sans Display';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/google-sans-display.ttf');
+}
+
+@font-face {
+    font-family: 'Google Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/google-sans.ttf');
+}
 
 * {
     -webkit-font-smoothing: antialiased;

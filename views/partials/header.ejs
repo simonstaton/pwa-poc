@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <%- include head -%>
-</head>
+<%- include head -%>
 <body>
     <header class="header">
         <div class="header__logo">
@@ -14,7 +12,7 @@
             <a href="javascript:void(0);" class="nav__close jsCloseNav"><i class="material-icons">close</i></a>
             <a href="/login.html" class="nav__link nav__link--show-mobile"><i class="show-mobile material-icons">account_circle</i> Sign in</a>
             <hr />
-            <a href="/" class="nav__link <% if (htmlWebpackPlugin.options.active === 'home') { %> nav__link--active<% } %>" onClick="ripple(event);"><i class="show-mobile material-icons">home</i> Home</a>
+            <a href="/" class="nav__link<% if (htmlWebpackPlugin.options.active === 'home') { %> nav__link--active<% } %>" onClick="ripple(event);"><i class="show-mobile material-icons">home</i> Home</a>
             <a href="javascript:void(0);" class="nav__link" onClick="ripple(event);"><i class="show-mobile material-icons">library_books</i> Topic Library</a>
             <a href="javascript:void(0);" class="nav__link" onClick="ripple(event);"><i class="show-mobile material-icons">school</i> Certification</a>
             <hr />

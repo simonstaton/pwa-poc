@@ -1,8 +1,57 @@
 @import '~normalize.css';
 @import 'lib/index';
 
+// Structural header - main - footer always 100%
 html {
-  box-sizing: border-box;
+    min-height: 100%;
+    display: flex;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100%;
+    width: 100%;
+    flex: 1;
+    position: relative;
+}
+
+body {
+    padding-top: 129px; // header offset
+    @include media-large {
+        padding-top: 64px; // header offset mobile
+    }
+    &.compact-nav {
+        padding-top: 64px; // header offset mobile
+    }
+}
+
+main {
+    box-sizing: border-box;
+    min-height: 100%;
+    display: inline-block;
+    width: 100%;
+    padding-bottom: 162px; // footer offset
+    @include media-large {
+        padding-bottom: 315px; // header offset mobile
+    }
+}
+// End structural
+.container {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    overflow: auto;
+    @media (max-width: 1440px) {
+        padding: 0 50px;
+    }
+    @include media-large {
+        padding: 0 20px;
+    }
+}
+
+.disabled {
+    opacity: 0.4 !important;
+    
 }
 
 *,

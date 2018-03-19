@@ -13,7 +13,6 @@ const dirAssets = path.join(__dirname, 'assets');
 
 // Env
 const APP_URL = 'http://127.0.0.1:8080';
-const PUSH_SERVICE_URL = 'http://127.0.0.1:8081';
 
 module.exports = {
   entry: {
@@ -22,8 +21,9 @@ module.exports = {
     ],
     bundle: path.join(dirApp, 'index'),
     'global.styles': path.join(dirAssets, 'styles/index.scss'),
-    'homepage.styles': path.join(dirAssets, 'styles/homepage/_index.scss'),
-    'login.styles': path.join(dirAssets, 'styles/login/_index.scss')
+    'homepage.styles': path.join(dirAssets, 'styles/homepage/index.scss'),
+    'login.styles': path.join(dirAssets, 'styles/login/index.scss'),
+    'lesson.styles': path.join(dirAssets, 'styles/lesson/index.scss')
   },
   resolve: {
     modules: [
@@ -35,20 +35,18 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       IS_DEV: IS_DEV,
-      VAPID_PUB_KEY: JSON.stringify(require('./vapid-keys').public),
-      PUSH_SERVICE_URL: JSON.stringify(PUSH_SERVICE_URL),
-      APP_URL: JSON.stringify(APP_URL)
+      VAPID_PUB_KEY: JSON.stringify(require('./vapid-keys').public)
     }),
     new WebpackPwaManifest({
       filename: 'web-manifest.json',
       lang: 'en-GB',
       name: 'Google Learn GO',
-      short_name: 'GLG',
-      start_url: APP_URL + '/dashboard.html',
+      short_name: 'Learn',
+      start_url: APP_URL + '/login.html',
       display: 'standalone',
       orientation: 'any',
       background_color: '#FFFFFF',
-      theme_color: '#00BFA5',
+      theme_color: '#6ccd79',
       prefer_related_applications: false,
       related_applications: [
         {
@@ -76,7 +74,7 @@ module.exports = {
         removeComments: true,
         collapseWhitespace: true
       },
-      excludeAssets: [/styles.js/, /login.styles/]
+      excludeAssets: [/styles.js/, /login.styles/, /lesson.styles/]
     }),
     new HtmlWebpackPlugin({
       filename: 'login.html',
@@ -86,21 +84,23 @@ module.exports = {
         removeComments: true,
         collapseWhitespace: true
       },
-      excludeAssets: [/styles.js/, /homepage.styles/]
+      excludeAssets: [/styles.js/, /homepage.styles/, /lesson.styles/]
     }),
     new HtmlWebpackPlugin({
       filename: 'dashboard.html',
       title: 'Dashboard',
+      active: 'dashboard',
       template: path.join(__dirname, 'views/dashboard.ejs'),
       minify: {
         removeComments: true,
         collapseWhitespace: true
       },
-      excludeAssets: [/styles.js/, /login.styles/, /homepage.styles/]
+      excludeAssets: [/styles.js/, /login.styles/, /homepage.styles/, /lesson.styles/]
     }),
     new HtmlWebpackPlugin({
       filename: 'lesson.html',
       title: 'Lesson',
+      compact_nav: true,
       template: path.join(__dirname, 'views/lesson.ejs'),
       minify: {
         removeComments: true,
